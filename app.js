@@ -5,6 +5,7 @@ let gameOver = false;
 const rock = document.querySelector(".rock");
 const paper = document.querySelector(".paper");
 const scissors = document.querySelector(".scissors");
+const reset = document.querySelector(".reset");
 
 function playRound(humanChoice) {
   if (gameOver) return;
@@ -51,6 +52,17 @@ function playRound(humanChoice) {
   }
 }
 
+function restartGame() {
+  humanScore = 0;
+  computerScore = 0;
+  gameOver = false;
+
+  document.querySelector("#results").innerHTML = "";
+  document.querySelector("#score").textContent = `Human 0: Computer: 0`;
+  document.querySelector("#wins").textContent = "";
+}
+
 rock.addEventListener("click", () => playRound("rock"));
 paper.addEventListener("click", () => playRound("paper"));
 scissors.addEventListener("click", () => playRound("scissors"));
+reset.addEventListener("click", restartGame);
